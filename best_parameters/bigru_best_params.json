@@ -1,0 +1,10 @@
+{
+  "model_type": "bigru",
+  "optimizer": "adam",
+  "lr": 0.006382329111982357,
+  "dropout": 0.530584415517604,
+  "weight_decay": 4.334873830542061e-06,
+  "batch_size": 8,
+  "hidden_dim": 32,
+  "num_layers": 1
+}

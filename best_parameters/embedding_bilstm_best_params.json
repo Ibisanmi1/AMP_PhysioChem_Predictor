@@ -1,0 +1,18 @@
+{
+  "model_type": "bilstm",
+  "feature_type": "embedding",
+  "best_mae": 0.6601588726043701,
+  "best_trial": 37,
+  "best_params": {
+    "optimizer": "adam",
+    "lr": 0.0005813260179119191,
+    "dropout": 0.12707199491868695,
+    "weight_decay": 9.981439869374198e-05,
+    "embedding_dim": 128,
+    "batch_size": 8,
+    "hidden_dim": 96,
+    "num_layers": 2
+  },
+  "n_trials": 50,
+  "timestamp": "20251231_140007"
+}

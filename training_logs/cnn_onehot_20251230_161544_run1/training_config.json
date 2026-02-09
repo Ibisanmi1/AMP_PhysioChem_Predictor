@@ -1,0 +1,50 @@
+{
+  "timestamp": "20251230_161544",
+  "random_seed": 42,
+  "device": "mps",
+  "model_type": "cnn",
+  "feature_type": "onehot",
+  "epochs": 300,
+  "batch_size": 8,
+  "learning_rate": 0.004406786335374113,
+  "max_length": 100,
+  "loss_function": "SmoothL1Loss",
+  "optimizer": "ADAMW",
+  "early_stopping": {
+    "enabled": true,
+    "patience": 70,
+    "mode": "min"
+  },
+  "data_paths": {
+    "train": "data/train_half_life.csv",
+    "validation": "data/val_half_life.csv",
+    "test": "data/test_half_life.csv"
+  },
+  "dataset_sizes": {
+    "train": 266,
+    "validation": 38,
+    "test": 76
+  },
+  "model_config": {
+    "input_channels": 20,
+    "conv_channels": [
+      30,
+      71
+    ],
+    "kernel_sizes": [
+      7,
+      9
+    ],
+    "dropout_rate": 0.2552495322663206,
+    "output_dim": 1,
+    "use_attention": true,
+    "use_multiscale": true
+  },
+  "model_parameters": 58374,
+  "target_statistics": {
+    "min": -1.9956356287002563,
+    "max": 3.5797836780548096,
+    "mean": -0.32657966017723083,
+    "std": 1.297804832458496
+  }
+}

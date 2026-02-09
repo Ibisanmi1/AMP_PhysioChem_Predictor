@@ -1,0 +1,18 @@
+{
+  "model_type": "rnn",
+  "feature_type": "embedding",
+  "best_mae": 0.9578259587287903,
+  "best_trial": 9,
+  "best_params": {
+    "optimizer": "adamw",
+    "lr": 0.0011909871914353176,
+    "dropout": 0.26967773573899595,
+    "weight_decay": 7.587654614852552e-05,
+    "embedding_dim": 128,
+    "batch_size": 16,
+    "hidden_dim": 128,
+    "num_layers": 2
+  },
+  "n_trials": 50,
+  "timestamp": "20251231_124335"
+}

@@ -1,0 +1,10 @@
+{
+  "model_type": "rnn",
+  "optimizer": "adamw",
+  "lr": 0.005100627805979914,
+  "dropout": 0.3792621663083701,
+  "weight_decay": 4.2079886696066345e-06,
+  "batch_size": 16,
+  "hidden_dim": 96,
+  "num_layers": 1
+}

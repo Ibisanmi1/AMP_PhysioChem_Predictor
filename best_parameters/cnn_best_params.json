@@ -1,0 +1,22 @@
+{
+  "model_type": "cnn",
+  "best_params": {
+    "optimizer": "adamw",
+    "lr": 0.004406786335374113,
+    "learning_rate": 0.004406786335374113,
+    "batch_size": 8,
+    "dropout": 0.2552495322663206,
+    "dropout_rate": 0.2552495322663206,
+    "weight_decay": 3.318333212460301e-05,
+    "use_attention": true,
+    "use_multiscale": true,
+    "num_conv_layers": 2,
+    "conv_ch1": 30,
+    "kernel_size1": 7,
+    "conv_ch2": 71,
+    "kernel_size2": 9
+  },
+  "timestamp": "2025-12-30T13:19:11.904156",
+  "source": "advanced_cnn_optimization",
+  "best_value": 0.3716675937175751
+}
