@@ -2,6 +2,30 @@
 
 A comprehensive tool for predicting peptide half-life and analyzing physicochemical properties of antimicrobial peptides (AMPs) using deep learning and established biochemical methods.
 
+## 🌐 Use Online (No Installation Required!)
+
+### **Google Colab - Recommended for Non-Coders**
+
+**Easiest way to use this tool without any coding knowledge!**
+
+1. **Open the Colab Notebook**: 
+   - Upload `AMP_PhysioChem_Predictor_Colab.ipynb` to Google Colab
+   - Or open it directly if shared via Google Drive
+
+2. **Follow the Simple Steps**:
+   - Run the setup cell (installs everything automatically)
+   - Choose your analysis type:
+     - **Single sequence**: Paste one peptide sequence
+     - **Batch analysis**: Upload a CSV or FASTA file
+   - View and download results
+
+3. **No coding required** - Just click "Run" on each cell!
+
+📓 **Colab Notebook**: `AMP_PhysioChem_Predictor_Colab.ipynb`
+
+---
+
+## 💻 Local Installation
 
 ### Step 1: Clone or Navigate to Project Directory
 
