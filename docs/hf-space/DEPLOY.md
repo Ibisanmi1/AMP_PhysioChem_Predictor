@@ -1,7 +1,7 @@
 # Hugging Face Space — deploy and push
 
 **Space:** [Ibisanmi1/AMP_PhysioChemical_Predictor](https://huggingface.co/spaces/Ibisanmi1/AMP_PhysioChemical_Predictor)  
-**App entry:** `app.py` (declared in `README.md` YAML frontmatter)
+**App entry:** `app.py` (declared in `README.md` YAML frontmatter). The Hub rejects pushes if **`short_description` is longer than 60 characters** (keep the Space card line short; put detail in the README body).
 
 ---
 

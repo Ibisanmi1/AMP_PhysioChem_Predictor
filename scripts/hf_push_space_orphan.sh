@@ -48,10 +48,21 @@ fi
 git commit -m "Space: slim snapshot (single commit, no prior binary history)"
 
 echo "Force-pushing to ${REMOTE_NAME}/main (replaces Space Git history) ..."
+set +e
 git push --force "${REMOTE_NAME}" "${TMP}:main"
+push_status=$?
+set -e
 
+# Always return to the previous branch (push may fail on Hub YAML / hooks).
 git checkout "${CURRENT}"
-git branch -D "${TMP}"
+git branch -D "${TMP}" 2>/dev/null || true
+
+if [[ "${push_status}" -ne 0 ]]; then
+  echo ""
+  echo "Push failed. If the remote mentioned YAML / short_description:"
+  echo "  README frontmatter short_description must be ≤ 60 characters (see docs/hf-space/DEPLOY.md)."
+  exit "${push_status}"
+fi
 
 echo ""
 echo "Done. Space: https://huggingface.co/spaces/Ibisanmi1/AMP_PhysioChemical_Predictor"

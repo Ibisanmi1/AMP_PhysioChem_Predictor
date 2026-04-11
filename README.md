@@ -7,9 +7,7 @@ sdk: gradio
 app_file: app.py
 pinned: false
 license: apache-2.0
-short_description: >-
-  Peptide plasma half-life and physicochemical profiling for antimicrobial peptides (AMPs)
-  — deep learning + established descriptors. Research / education; not clinical advice.
+short_description: AMP half-life and physchem profiles for peptides (research).
 ---
 
 # AMP PhysioChem Predictor
