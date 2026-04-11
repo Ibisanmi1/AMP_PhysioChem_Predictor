@@ -1,4 +1,6 @@
-
+"""
+AMP Physicochemical AI Tools - Source Package
+"""
 
 from .physicochemical_analyzer import PhysicochemicalAnalyzer
 from .models import (

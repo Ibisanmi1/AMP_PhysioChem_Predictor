@@ -16,22 +16,27 @@ parts/
 sdist/
 var/
 wheels/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
+pip-wheel-metadata/
 
 # Virtual environments
 venv/
 env/
 ENV/
-.venv
+.venv/
 
-# IDE
+# IDE & editors
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
+.project
+.pydevproject
 
 # OS
 .DS_Store
@@ -42,14 +47,48 @@ ENV/
 ehthumbs.db
 Thumbs.db
 
-# Jupyter Notebook
-.ipynb_checkpoints
+# Jupyter
+.ipynb_checkpoints/
 
-# Temporary files
+# Temp / logs
 *.tmp
 *.log
 *.bak
+*.orig
 
-# Environment variables
+# Env & secrets
 .env
-.env.local
+.env.*
+!.env.example
+
+# --- AMP_PhysioChem_Predictor ---
+# Keep in version control (do not add ignore rules that hide these):
+#   CITATION.bib, CITATION.cff, app.py, images/
+# data/, output/, and checkpoints/ are also tracked for this repo.
+
+# Full training runs (verbose logs — keep out of git unless you need them)
+training_logs/
+
+# Local tool caches (e.g. matplotlib font cache under repo)
+.mplconfig/
+
+# Cursor / local tooling
+.cursor/
+
+# ML experiment trackers
+wandb/
+mlruns/
+
+# Test / type caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+
+# Optional local bundles
+*_figures_hires.zip

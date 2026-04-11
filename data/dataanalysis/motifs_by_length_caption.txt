@@ -1,0 +1,9 @@
+Figure file: motifs_by_length.png / motifs_by_length.pdf
+Y-axis mode: percent (set MOTIFS_BY_LENGTH_Y=percent|count|frequency to change).
+
+Pooled k-mer analysis for the half-life peptide corpus (cleaned sequences, length ≤ 100 aa). Y-axis: percentage of all pooled k-windows of that size (counts / total windows × 100). Each panel is titled (2 k-mer, 3 k-mer, 4 k-mer) and shows the top 20 motifs by rank; bars are ordered highest to lowest. Full table: motif_analysis_pooled.csv.
+
+Panels (left to right):
+  • 2 k-mer: top 20 of 380 distinct motifs in the corpus.
+  • 3 k-mer: top 20 of 1517 distinct motifs in the corpus.
+  • 4 k-mer: top 20 of 1737 distinct motifs in the corpus.

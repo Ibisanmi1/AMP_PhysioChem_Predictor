@@ -1,0 +1,25 @@
+{
+  "model_type": "cnn_bilstm_physchem",
+  "feature_type": "embedding+physchem",
+  "best_mae": 0.4207979440689087,
+  "best_trial": 1,
+  "best_params": {
+    "optimizer": "adam",
+    "lr": 0.000982367532796894,
+    "dropout": 0.1441612744547414,
+    "weight_decay": 1.8635136366124973e-05,
+    "embedding_dim": 64,
+    "batch_size": 16,
+    "physchem_h1": 32,
+    "num_conv_layers": 2,
+    "conv_ch1": 114,
+    "kernel_size1": 7,
+    "conv_ch2": 137,
+    "kernel_size2": 5,
+    "lstm_hidden_dim": 96,
+    "lstm_num_layers": 3
+  },
+  "n_trials": 8,
+  "fast_mode": true,
+  "timestamp": "20260331_160754"
+}

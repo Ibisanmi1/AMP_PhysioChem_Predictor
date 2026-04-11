@@ -3,51 +3,64 @@ COMPREHENSIVE PEPTIDE ANALYSIS REPORT
 Publication-Quality Statistical Analysis
 ================================================================================
 
-Analysis Date: 2026-01-25 20:09:46
-Total Peptides Analyzed: 3
+Analysis Date: 2026-04-05 16:04:32
+Total Peptides Analyzed: 23
 
 HALF-LIFE STATISTICS
 --------------------------------------------------------------------------------
-Mean:        10.0136 minutes
-Median:      0.0249 minutes
-Std Dev:     17.3055 minutes
-Min:         0.0197 minutes
-Max:         29.9962 minutes
-Q1 (25%):    0.0223 minutes
-Q3 (75%):    15.0106 minutes
-IQR:         14.9883 minutes
-Skewness:    1.7321
-Kurtosis:    nan
+Mean:        1.1764 minutes
+Median:      0.0961 minutes
+Std Dev:     2.4338 minutes
+Min:         0.0131 minutes
+Max:         8.5283 minutes
+Q1 (25%):    0.0233 minutes
+Q3 (75%):    0.4763 minutes
+IQR:         0.4529 minutes
+Skewness:    2.3584
+Kurtosis:    4.6564
 
 KEY PROPERTIES SUMMARY
 --------------------------------------------------------------------------------
-Net Charge (pH 7.0)           : Mean =     6.6647, Std =     1.5277
-Half-Life (minutes)           : Mean =    10.0136, Std =    17.3055
-Hydrophobicity (KD mean)      : Mean =    -0.4497, Std =     0.9007
-Hydrophobic Percentage (%)    : Mean =    45.9974, Std =    12.7264
-Hydrophobicity (KD sum)       : Mean =   -11.2333, Std =    17.1690
-Amphipathicity Index          : Mean =    -0.0801, Std =     0.2545
-Amphipathic Patterns          : Mean =    10.3333, Std =     4.9329
-Helix Fraction                : Mean =     0.5880, Std =     0.2039
-Sequence Length               : Mean =    22.0000, Std =    13.0000
-Isoelectric Point (pI)        : Mean =    10.8305, Std =     0.2210
+Net Charge (pH 7.0)           : Mean =    -0.9935, Std =     1.1250
+Half-Life (minutes)           : Mean =     1.1764, Std =     2.4338
+Hydrophobicity (KD mean)      : Mean =     0.0327, Std =     0.7766
+Hydrophobic Percentage (%)    : Mean =    41.9136, Std =    11.8844
+Hydrophobicity (KD sum)       : Mean =     1.1696, Std =    11.1927
+Amphipathicity Index          : Mean =    -0.1617, Std =     0.2377
+Amphipathic Patterns          : Mean =     3.0435, Std =     1.9418
+Helix Fraction                : Mean =     0.3287, Std =     0.1383
+Sequence Length               : Mean =    13.1304, Std =     3.4418
+Isoelectric Point (pI)        : Mean =     5.1879, Std =     1.6512
 
 CORRELATIONS WITH HALF-LIFE
 --------------------------------------------------------------------------------
 Property                       Pearson r       P-value         Significance   
 --------------------------------------------------------------------------------
+Hydrophobicity (KD mean)               0.3085     1.5209e-01 ns             
+Helix Fraction                        -0.2648     2.2203e-01 ns             
+Hydrophobicity (KD sum)                0.2535     2.4314e-01 ns             
+Amphipathic Patterns                  -0.1447     5.1006e-01 ns             
+Isoelectric Point (pI)                -0.1259     5.6698e-01 ns             
+Amphipathicity Index                   0.0694     7.5313e-01 ns             
+Hydrophobic Percentage (%)             0.0694     7.5313e-01 ns             
+Net Charge (pH 7.0)                   -0.0405     8.5427e-01 ns             
+Sequence Length                       -0.0308     8.8892e-01 ns             
 
 TOP 5 PEPTIDES (Highest Half-Life)
 --------------------------------------------------------------------------------
-ID: pep003, Half-Life: 30.00 minutes
-ID: pep001, Half-Life: 0.02 minutes
-ID: pep002, Half-Life: 0.02 minutes
+ID: pep20, Half-Life: 8.53 minutes
+ID: pep24, Half-Life: 7.53 minutes
+ID: pep30, Half-Life: 4.86 minutes
+ID: pep19, Half-Life: 2.13 minutes
+ID: pep26, Half-Life: 1.97 minutes
 
 BOTTOM 5 PEPTIDES (Lowest Half-Life)
 --------------------------------------------------------------------------------
-ID: pep002, Half-Life: 0.02 minutes
-ID: pep001, Half-Life: 0.02 minutes
-ID: pep003, Half-Life: 30.00 minutes
+ID: pep3, Half-Life: 0.01 minutes
+ID: pep18, Half-Life: 0.02 minutes
+ID: pep6, Half-Life: 0.02 minutes
+ID: pep17, Half-Life: 0.02 minutes
+ID: pep29, Half-Life: 0.02 minutes
 
 ================================================================================
 END OF REPORT

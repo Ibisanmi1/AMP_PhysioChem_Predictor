@@ -1,4 +1,7 @@
-
+"""
+Inference Script for Physicochemical Property Prediction
+Load trained models and make predictions on new sequences
+"""
 
 import os
 import argparse
@@ -18,10 +21,11 @@ from src.physicochemical_analyzer import PhysicochemicalAnalyzer
 
 
 def load_model(model_path: str, device: torch.device):
-    
+    """Load trained model from checkpoint."""
     checkpoint = torch.load(model_path, map_location=device)
     config = checkpoint['config']
     
+                                        
     if config['feature_type'] == 'physchem':
         model_kwargs = {'input_dim': config.get('input_dim', 50), 'output_dim': 1}
     elif config['feature_type'] == 'onehot':
@@ -33,6 +37,7 @@ def load_model(model_path: str, device: torch.device):
             'output_dim': 1
         }
     
+                  
     model = get_model(config['model_type'], **model_kwargs)
     model.load_state_dict(checkpoint['model_state_dict'])
     model = model.to(device)
@@ -43,9 +48,10 @@ def load_model(model_path: str, device: torch.device):
 
 def predict_single(model, sequence: str, config: Dict, device: torch.device,
                   processor: PhysioChemDataProcessor) -> float:
-    
+    """Predict property for a single sequence."""
+                                        
     dataset = PhysioChemDataset(
-        [sequence], np.array([0.0]),
+        [sequence], np.array([0.0]),                
         config['feature_type'],
         config['max_length']
     )
@@ -53,6 +59,7 @@ def predict_single(model, sequence: str, config: Dict, device: torch.device,
     features, _ = dataset[0]
     
     with torch.no_grad():
+                        
         if config['feature_type'] == 'physchem':
             inputs = features['physchem'].unsqueeze(0).to(device)
             prediction = model(inputs)
@@ -69,27 +76,32 @@ def predict_single(model, sequence: str, config: Dict, device: torch.device,
 
 def predict_batch(model, sequences: List[str], config: Dict, device: torch.device,
                  processor: PhysioChemDataProcessor, batch_size: int = 32) -> np.ndarray:
-    
+    """Predict properties for a batch of sequences."""
     predictions = []
     
+                        
     for i in range(0, len(sequences), batch_size):
         batch_sequences = sequences[i:i+batch_size]
         
+                        
         dataset = PhysioChemDataset(
             batch_sequences,
-            np.zeros(len(batch_sequences)),
+            np.zeros(len(batch_sequences)),                 
             config['feature_type'],
             config['max_length']
         )
         
+                           
         dataloader = torch.utils.data.DataLoader(
             dataset, batch_size=batch_size, shuffle=False,
             collate_fn=collate_fn
         )
         
+                 
         batch_predictions = []
         with torch.no_grad():
             for batch_features, _ in dataloader:
+                                
                 if config['feature_type'] == 'physchem':
                     inputs = batch_features['physchem'].to(device)
                     outputs = model(inputs)
@@ -110,15 +122,18 @@ def predict_batch(model, sequences: List[str], config: Dict, device: torch.devic
 
 def predict_from_file(model_path: str, input_file: str, output_file: str,
                      sequence_col: str = 'sequence', batch_size: int = 32):
-    
+    """Predict properties from input file and save results."""
+            
     device = torch.device('cuda' if torch.cuda.is_available() else
                          'mps' if torch.backends.mps.is_available() else 'cpu')
     print(f"Using device: {device}")
     
+                
     print(f"Loading model from {model_path}...")
     model, config = load_model(model_path, device)
     print(f"Model type: {config['model_type']}, Feature type: {config['feature_type']}")
     
+               
     print(f"Loading data from {input_file}...")
     df = pd.read_csv(input_file)
     sequences = df[sequence_col].astype(str).tolist()
@@ -126,20 +141,25 @@ def predict_from_file(model_path: str, input_file: str, output_file: str,
     
     print(f"Found {len(sequences)} sequences")
     
+                      
     processor = PhysioChemDataProcessor(
         feature_type=config['feature_type'],
         max_length=config['max_length']
     )
     
+                      
     print("Making predictions...")
     predictions = predict_batch(model, sequences, config, device, processor, batch_size)
     
+                              
     results_df = df.copy()
     results_df['predicted_property'] = predictions
     
+                  
     results_df.to_csv(output_file, index=False)
     print(f"Results saved to {output_file}")
     
+                      
     print("\nPrediction Statistics:")
     print(f"  Mean: {predictions.mean():.4f}")
     print(f"  Std: {predictions.std():.4f}")
@@ -148,13 +168,16 @@ def predict_from_file(model_path: str, input_file: str, output_file: str,
 
 
 def predict_interactive(model_path: str):
-    
+    """Interactive prediction mode."""
+            
     device = torch.device('cuda' if torch.cuda.is_available() else
                          'mps' if torch.backends.mps.is_available() else 'cpu')
     
+                
     print(f"Loading model from {model_path}...")
     model, config = load_model(model_path, device)
     
+                      
     processor = PhysioChemDataProcessor(
         feature_type=config['feature_type'],
         max_length=config['max_length']
