@@ -662,8 +662,8 @@ CUSTOM_CSS = """
   font-weight: 700;
   letter-spacing: 0.11em;
   text-transform: uppercase;
-  opacity: 0.88;
-  color: var(--hero-accent-light);
+  opacity: 0.95;
+  color: #fff !important;
 }
 .hero h1 {
   margin: 0 0 0.5rem 0;
