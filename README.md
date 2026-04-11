@@ -138,3 +138,6 @@ AMP_PhysioChem_Predictor/
 │   └── ...
 └── training/                   # Training scripts (see training/README.md)
 ```
+
+If this pipeline contributes to your research, please cite:
+Ibisanmi TA, Bahatheg G,Mishra (Baishnab) SK,  Willcox M, Kumar N (2026). AMP_PhysioChem_Predictor: Comprehensive computational software for the prediction of physicochemical properties and antimicrobial peptide stability.....
