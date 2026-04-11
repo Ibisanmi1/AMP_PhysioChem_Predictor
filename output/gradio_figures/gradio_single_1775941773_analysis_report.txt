@@ -1,0 +1,50 @@
+================================================================================
+COMPREHENSIVE PEPTIDE ANALYSIS REPORT
+Publication-Quality Statistical Analysis
+================================================================================
+
+Analysis Date: 2026-04-12 07:09:41
+Total Peptides Analyzed: 1
+
+HALF-LIFE STATISTICS
+--------------------------------------------------------------------------------
+Mean:        799.7330 minutes
+Median:      799.7330 minutes
+Std Dev:     nan minutes
+Min:         799.7330 minutes
+Max:         799.7330 minutes
+Q1 (25%):    799.7330 minutes
+Q3 (75%):    799.7330 minutes
+IQR:         0.0000 minutes
+Skewness:    nan
+Kurtosis:    nan
+
+KEY PROPERTIES SUMMARY
+--------------------------------------------------------------------------------
+Net Charge (pH 7.0)           : Mean =     4.9965, Std =        nan
+Half-Life (minutes)           : Mean =   799.7330, Std =        nan
+Hydrophobicity (KD mean)      : Mean =     0.5400, Std =        nan
+Hydrophobic Percentage (%)    : Mean =    60.0000, Std =        nan
+Hydrophobicity (KD sum)       : Mean =     8.1000, Std =        nan
+Amphipathicity Index          : Mean =     0.2000, Std =        nan
+Amphipathic Patterns          : Mean =     7.0000, Std =        nan
+Helix Fraction                : Mean =     0.6000, Std =        nan
+Sequence Length               : Mean =    15.0000, Std =        nan
+Isoelectric Point (pI)        : Mean =    10.6025, Std =        nan
+
+CORRELATIONS WITH HALF-LIFE
+--------------------------------------------------------------------------------
+Property                       Pearson r       P-value         Significance   
+--------------------------------------------------------------------------------
+
+TOP 5 PEPTIDES (Highest Half-Life)
+--------------------------------------------------------------------------------
+ID: N/A, Half-Life: 799.73 minutes
+
+BOTTOM 5 PEPTIDES (Lowest Half-Life)
+--------------------------------------------------------------------------------
+ID: N/A, Half-Life: 799.73 minutes
+
+================================================================================
+END OF REPORT
+================================================================================

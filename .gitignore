@@ -72,8 +72,12 @@ training_logs/
 # Best-parameter JSON dumps (local tuning / search — not required for inference UI)
 best_parameters/
 
+scripts/hf_set_token.sh
+
+
 # Local tool caches (e.g. matplotlib font cache under repo)
 .mplconfig/
+scripts/hf_push_space.sh
 
 # Cursor / local tooling
 .cursor/

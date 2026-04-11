@@ -52,12 +52,10 @@ CITATION_LINE = (
     "AMP_PhysioChem_Predictor: Comprehensive computational software for the prediction "
     "of physicochemical properties and antimicrobial peptide stability."
 )
-# Plain-text bundle for ZIP / copy (repository URL appended for reproducibility).
 CITATION_FULL_TEXT = (
     f"{CITATION_INTRO}\n\n{CITATION_LINE}\nAvailable from: {GITHUB_REPO}\n"
 )
 
-# UI-friendly names → internal preset keys (no raw training-log folder names in the dropdown).
 PRESET_RECOMMENDED = "__recommended__"
 PRESET_HYBRID_PHYSCHEM_MATRIX = "cnn_bilstm_hybrid_physchem_matrix"
 
@@ -76,7 +74,6 @@ LABEL_TO_PRESET: Dict[str, str] = {label: key for label, key in MODEL_PRESETS}
 
 _predictor_cache: Dict[str, Any] = {}
 
-# Order matches ComprehensiveAnalysis outputs in run_AMP_PhysioChem_Predictor.py
 _FIGURE_SUFFIXES = (
     "_distributions.png",
     "_correlations.png",
@@ -86,7 +83,6 @@ _FIGURE_SUFFIXES = (
     "_structural_analysis.png",
 )
 
-# Human-readable labels for the gallery (publication-style panels)
 _FIGURE_CAPTIONS: Dict[str, str] = {
     "_distributions.png": "Distributions & KDE — key peptide properties",
     "_correlations.png": "Correlations with half-life (Pearson r)",
@@ -96,7 +92,6 @@ _FIGURE_CAPTIONS: Dict[str, str] = {
     "_structural_analysis.png": "Structural descriptors vs half-life",
 }
 
-# Web / export DPI (overrides per-save 300 dpi in the runner). Tune via AMP_WEB_FIGURE_DPI.
 _DEFAULT_WEB_SAVE_DPI = int(os.environ.get("AMP_WEB_FIGURE_DPI", "420"))
 
 
@@ -473,7 +468,7 @@ def predict_single(
             [],
             None,
         )
-    except Exception as e:  # noqa: BLE001 — surface errors in UI
+    except Exception as e:  # noqa: BLE001
         return (f"### Error\n\n`{type(e).__name__}`: {e}", pd.DataFrame(), None, "", [], None)
 
     md = _format_single_markdown(result)
@@ -723,12 +718,16 @@ CUSTOM_CSS = """
   margin-bottom: 0.45rem;
   color: var(--hero-accent-light);
 }
-.hero-aside .hero-card p {
+.hero-aside .hero-card p,
+.hero-aside .hero-card p.hero-card-model-hint {
   margin: 0;
   font-size: 0.88rem;
   line-height: 1.45;
-  opacity: 0.95;
-  color: #fff !important;
+  opacity: 1;
+  color: #ffffff !important;
+}
+.hero-aside .hero-card p strong {
+  color: #ffffff !important;
 }
 .hero-aside .hero-card code {
   color: #f0f7ff !important;
@@ -736,47 +735,6 @@ CUSTOM_CSS = """
   padding: 0.12em 0.35em;
   border-radius: 4px;
   font-size: 0.9em !important;
-}
-.hero-foot {
-  padding: 0.65rem 2rem 0.85rem 2rem;
-  background: rgba(0,0,0,0.15);
-  border-top: 1px solid rgba(255,255,255,0.1);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem 0.75rem;
-  color: #fff !important;
-}
-.hero .accent {
-  display: inline-block;
-  padding: 0.22rem 0.65rem;
-  background: var(--hero-accent-mid);
-  color: #ffffff;
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.07em;
-  border-radius: 4px;
-  text-transform: uppercase;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-}
-.hero-foot-note {
-  font-size: 0.82rem;
-  opacity: 0.95;
-  margin: 0;
-  flex: 1;
-  min-width: 200px;
-  color: #fff !important;
-}
-.hero-foot-note a {
-  color: #fff !important;
-  font-weight: 600;
-  text-decoration: underline !important;
-  text-underline-offset: 2px;
-  text-decoration-color: rgba(168, 217, 255, 0.7) !important;
-}
-.hero-foot-note a:hover {
-  color: var(--hero-accent-light) !important;
-  text-decoration-color: var(--hero-accent-light) !important;
 }
 div.foot {
   margin-top: 2rem;
@@ -848,7 +806,7 @@ try:
         block_label_text_weight="600",
         input_border_width="1px",
     )
-except Exception:  # noqa: BLE001 — older Gradio without Glass
+except Exception:  # noqa: BLE001
     APP_THEME = gr.themes.Soft(
         primary_hue="blue",
         secondary_hue="blue",
@@ -888,17 +846,9 @@ _HERO_HTML = f"""
     <aside class="hero-aside" aria-label="Model summary">
       <div class="hero-card">
         <span class="hero-card-title">Models</span>
-        <p>Choose a preset under <strong>Half-life prediction model</strong> (recommended hybrid default or hybrid matrix benchmark). Both use the <code style="font-size:0.82em">cnn_bilstm_physchem</code> architecture. Optional: <code style="font-size:0.82em">AMP_MODEL_PATH</code> overrides the <em>recommended</em> preset only.</p>
+        <p class="hero-card-model-hint" style="color: #ffffff !important;">Choose a preset under <strong style="color: #ffffff !important;">Half-life prediction model</strong> (recommended hybrid default or hybrid matrix benchmark).</p>
       </div>
     </aside>
-  </div>
-  <div class="hero-foot">
-    <span class="accent">Research interface</span>
-    <p class="hero-foot-note">
-      Organic/medicinal chemistry and computational discovery at UNSW — see
-      <a href="{LAB_WEB}" target="_blank" rel="noopener noreferrer">nareshkumar.com.au</a>
-      for research areas, people, and news.
-    </p>
   </div>
 </div>
 """
@@ -1109,9 +1059,6 @@ Below: **recommended citation** (plain text), **BibTeX** (copy or download), fil
     gr.HTML(
         f"""
 <div class="foot">
-  <strong>AMP PhysioChem Predictor</strong> — default hybrid model as documented in the repository README.
-  Checkpoints: <code>checkpoints/</code> or env <code>AMP_PHYSIOCHEM_AI_ROOT</code> / <code>AMP_MODEL_PATH</code>.
-  <br/>
   <strong>Affiliation:</strong> Computational Drug Discovery, Kumar Research Group, School of Chemistry,
   UNSW Sydney · <a href="{LAB_WEB}" target="_blank" rel="noopener noreferrer">nareshkumar.com.au</a>
   · <a href="{GITHUB_REPO}" target="_blank" rel="noopener noreferrer">Source on GitHub</a>.
@@ -1124,12 +1071,29 @@ Below: **recommended citation** (plain text), **BibTeX** (copy or download), fil
     )
 
 
+def _on_hf_space() -> bool:
+    """Hugging Face Spaces injects SPACE_* env vars; use safer public defaults there."""
+    return any(
+        os.environ.get(k)
+        for k in (
+            "SPACE_ID",
+            "SPACE_AUTHOR_NAME",
+            "SPACE_REPO_NAME",
+        )
+    )
+
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", "7860"))
     demo.queue(default_concurrency_limit=2)
+    _raw_show = os.environ.get("GRADIO_SHOW_ERROR")
+    if _raw_show is not None and str(_raw_show).strip() != "":
+        _show_err = str(_raw_show).strip().lower() in ("1", "true", "yes")
+    else:
+        _show_err = not _on_hf_space()
     demo.launch(
         server_name="0.0.0.0",
         server_port=port,
-        show_error=True,
+        show_error=_show_err,
         **_LAUNCH_THEME_KW,
     )

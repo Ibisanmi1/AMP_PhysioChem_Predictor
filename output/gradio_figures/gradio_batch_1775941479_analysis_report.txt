@@ -1,0 +1,54 @@
+================================================================================
+COMPREHENSIVE PEPTIDE ANALYSIS REPORT
+Publication-Quality Statistical Analysis
+================================================================================
+
+Analysis Date: 2026-04-12 07:04:50
+Total Peptides Analyzed: 3
+
+HALF-LIFE STATISTICS
+--------------------------------------------------------------------------------
+Mean:        0.1786 minutes
+Median:      0.0413 minutes
+Std Dev:     0.2626 minutes
+Min:         0.0131 minutes
+Max:         0.4814 minutes
+Q1 (25%):    0.0272 minutes
+Q3 (75%):    0.2614 minutes
+IQR:         0.2342 minutes
+Skewness:    1.7095
+Kurtosis:    nan
+
+KEY PROPERTIES SUMMARY
+--------------------------------------------------------------------------------
+Net Charge (pH 7.0)           : Mean =    -0.6663, Std =     1.5258
+Half-Life (minutes)           : Mean =     0.1786, Std =     0.2626
+Hydrophobicity (KD mean)      : Mean =    -0.0404, Std =     0.1858
+Hydrophobic Percentage (%)    : Mean =    39.1667, Std =     1.4434
+Hydrophobicity (KD sum)       : Mean =    -0.8667, Std =     2.5968
+Amphipathicity Index          : Mean =    -0.2167, Std =     0.0289
+Amphipathic Patterns          : Mean =     4.0000, Std =     1.7321
+Helix Fraction                : Mean =     0.3292, Std =     0.1227
+Sequence Length               : Mean =    12.0000, Std =     3.4641
+Isoelectric Point (pI)        : Mean =     5.8308, Std =     2.4228
+
+CORRELATIONS WITH HALF-LIFE
+--------------------------------------------------------------------------------
+Property                       Pearson r       P-value         Significance   
+--------------------------------------------------------------------------------
+
+TOP 5 PEPTIDES (Highest Half-Life)
+--------------------------------------------------------------------------------
+ID: N/A, Half-Life: 0.48 minutes
+ID: N/A, Half-Life: 0.04 minutes
+ID: N/A, Half-Life: 0.01 minutes
+
+BOTTOM 5 PEPTIDES (Lowest Half-Life)
+--------------------------------------------------------------------------------
+ID: N/A, Half-Life: 0.01 minutes
+ID: N/A, Half-Life: 0.04 minutes
+ID: N/A, Half-Life: 0.48 minutes
+
+================================================================================
+END OF REPORT
+================================================================================

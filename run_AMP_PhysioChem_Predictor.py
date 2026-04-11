@@ -33,7 +33,6 @@ from scipy.stats import pearsonr, spearmanr, linregress
 import warnings
 warnings.filterwarnings('ignore')
 
-# Matches Gradio amino-acid composition chart (app.py): primary blue, edge, font stack
 CHART_PRIMARY = "#2e6da4"
 CHART_EDGE = "#1a3d5c"
 CHART_FONT_SANS = [
@@ -248,7 +247,6 @@ class ComprehensiveAnalysis:
             data = df[prop].dropna()
             
             if len(data) > 0:
-                # Solid fill + dark edges — matches Gradio amino-acid % bar chart (no wash-out alpha).
                 ax.hist(
                     data,
                     bins=20,

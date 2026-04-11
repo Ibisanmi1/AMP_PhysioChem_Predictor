@@ -1,7 +1,24 @@
+---
+title: AMP PhysioChemical Predictor
+emoji: 🧬
+colorFrom: blue
+colorTo: indigo
+sdk: gradio
+app_file: app.py
+pinned: false
+license: apache-2.0
+short_description: >-
+  Peptide plasma half-life and physicochemical profiling for antimicrobial peptides (AMPs)
+  — deep learning + established descriptors. Research / education; not clinical advice.
+---
+
 # AMP PhysioChem Predictor
 
 A comprehensive tool for predicting peptide half-life and analyzing physicochemical properties of antimicrobial peptides (AMPs) using deep learning and established biochemical methods.
 
+It is intended for research and education (e.g. open demos and reproducible workflows). Predictions are computational estimates, not clinical or regulatory advice.
+
+**Hugging Face Space:** [Ibisanmi1/AMP_PhysioChemical_Predictor](https://huggingface.co/spaces/Ibisanmi1/AMP_PhysioChemical_Predictor) — deploy, token, and `git push` steps: [`docs/hf-space/DEPLOY.md`](docs/hf-space/DEPLOY.md).
 
 ### Step 1: Clone or Navigate to Project Directory
 
