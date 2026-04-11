@@ -114,19 +114,20 @@ If you see:
 
 the Space **will not accept** normal Git commits that include large blobs (e.g. `.pt` checkpoints, big `.png` exports, `output/`, `images/`).
 
-**What we do in this repo:** those paths are listed in **`.gitignore`**. Remove them from Git’s index (files stay on your disk), commit, then push again:
+**What we do in this repo:** those paths are listed in **`.gitignore`**. Remove them from Git’s index (files stay on your disk), commit, then push again. **Do not** remove `checkpoints/.gitkeep` from the index—that file keeps an empty `checkpoints/` folder in Git for the Space.
 
 ```bash
-git rm -r --cached checkpoints output images data/dataanalysis 2>/dev/null || true
-git add .gitignore
+git rm -r --cached output images data/dataanalysis 2>/dev/null || true
+git ls-files 'checkpoints/*.pt' 'checkpoints/*.pth' 2>/dev/null | xargs git rm --cached -f 2>/dev/null || true
+git add .gitignore checkpoints/.gitkeep
 git commit -m "Stop tracking binaries for Hugging Face Space"
 ./scripts/hf_push_space.sh
 ```
 
 **After a slim push, the Space still needs weights** so `app.py` can run:
 
-1. In the Space repo on Hugging Face: **Files and versions → Add file** and upload at least  
-   `checkpoints/Half_Life_cnn_bilstm_embedding_physchem.pt` (or whatever your default preset expects), **or**
+1. The repo tracks **`checkpoints/.gitkeep`** so `checkpoints/` exists after a push. In the Space: **Files and versions → Add file** and upload your `.pt` files into `checkpoints/` (e.g.  
+   `Half_Life_cnn_bilstm_embedding_physchem.pt` — whatever your default preset expects), **or**
 2. Host weights on the **Model Hub** and extend the app to `hf_hub_download` on startup (custom work), **or**
 3. Use **Git LFS** / **Xet** as in [HF Xet docs](https://huggingface.co/docs/hub/xet) if you insist on Git-tracking binaries.
 

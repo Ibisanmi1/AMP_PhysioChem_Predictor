@@ -66,7 +66,9 @@ Thumbs.db
 # Hugging Face Spaces reject large binaries in plain Git — use Hub, Space "Files", or Git LFS/Xet.
 # See docs/hf-space/DEPLOY.md
 
-checkpoints/
+# Track checkpoints/ layout only (.gitkeep); never commit .pt via Git (HF + GitHub).
+checkpoints/*
+!checkpoints/.gitkeep
 *.pt
 *.pth
 *.ckpt
