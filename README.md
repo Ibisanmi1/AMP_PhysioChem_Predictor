@@ -1,5 +1,6 @@
 ---
 title: AMP PhysioChemical Predictor
+<<<<<<< HEAD
 emoji: 🧬
 colorFrom: blue
 colorTo: indigo
@@ -158,3 +159,17 @@ AMP_PhysioChem_Predictor/
 
 If this pipeline contributes to your research, please cite:
 Ibisanmi TA, Bahatheg G,Mishra (Baishnab) SK,  Willcox M, Kumar N (2026). AMP_PhysioChem_Predictor: Comprehensive computational software for the prediction of physicochemical properties and antimicrobial peptide stability.....
+=======
+emoji: 🐢
+colorFrom: purple
+colorTo: purple
+sdk: gradio
+sdk_version: 6.12.0
+app_file: app.py
+pinned: false
+license: apache-2.0
+short_description: ' web-based Computational platform '
+---
+
+Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+>>>>>>> hf/main
