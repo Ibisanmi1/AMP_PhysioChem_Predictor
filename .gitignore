@@ -69,6 +69,9 @@ Thumbs.db
 # Full training runs (verbose logs — keep out of git unless you need them)
 training_logs/
 
+# Best-parameter JSON dumps (local tuning / search — not required for inference UI)
+best_parameters/
+
 # Local tool caches (e.g. matplotlib font cache under repo)
 .mplconfig/
 
