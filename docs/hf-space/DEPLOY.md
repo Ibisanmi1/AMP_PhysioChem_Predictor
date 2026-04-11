@@ -132,7 +132,19 @@ git commit -m "Stop tracking binaries for Hugging Face Space"
 
 ### Still rejected after `git rm --cached`?
 
-Older commits on `main` may still contain those blobs, so the push pack includes them. Strip history (e.g. [`git filter-repo`](https://github.com/newren/git-filter-repo) with `--path` / `--invert-paths` on `checkpoints/` and other dirs) **or** start a **new orphan branch** with a single slim commit and `HF_PUSH_FORCE=1` push to `hf/main` (disconnects Space history from your old `main`).
+Older commits still contain those blobs, so the **entire push** is rejected. Your local `main` can stay as-is; only the Space needs a clean history.
+
+**Recommended — script (one slim commit to Space `main`, no old binary history):**
+
+```bash
+# clean working tree; .gitignore must exclude checkpoints, output, images, etc.
+chmod +x scripts/hf_push_space_orphan.sh
+./scripts/hf_push_space_orphan.sh
+```
+
+That creates a temporary orphan branch from your **current working tree**, force-pushes it to `hf/main`, then returns you to your branch.
+
+**Alternative — rewrite local history:** [`git filter-repo`](https://github.com/newren/git-filter-repo) with `--path` / `--invert-paths` on `checkpoints/` and other dirs, then push (heavier; affects the branch you filter).
 
 ---
 
