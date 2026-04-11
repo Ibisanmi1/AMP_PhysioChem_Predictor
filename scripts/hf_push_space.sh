@@ -47,10 +47,16 @@ _push() {
 }
 if ! _push; then
   echo ""
-  echo "Push failed. The Space already has commits not in your branch."
+  echo "Push failed."
+  echo ""
+  echo "If the remote mentioned binary files / Xet / pre-receive hook:"
+  echo "  Hugging Face Spaces block large binaries in plain Git. Stop tracking checkpoints,"
+  echo "  PNG outputs, etc. (see .gitignore and docs/hf-space/DEPLOY.md → HF rejects binary files)."
+  echo ""
+  echo "If the remote said fetch first / non-fast-forward (history mismatch):"
   echo "  Option A — merge Space into your repo, then push again:"
   echo "    git fetch ${REMOTE_NAME} && git merge ${REMOTE_NAME}/main --allow-unrelated-histories"
-  echo "    # resolve any conflicts, commit, then: ./scripts/hf_push_space.sh"
+  echo "    # resolve conflicts, commit, then: ./scripts/hf_push_space.sh"
   echo "  Option B — replace Space main with your branch (destructive):"
   echo "    HF_PUSH_FORCE=1 ./scripts/hf_push_space.sh ${LOCAL_BRANCH}"
   exit 1

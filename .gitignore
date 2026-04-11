@@ -62,9 +62,17 @@ Thumbs.db
 !.env.example
 
 # --- AMP_PhysioChem_Predictor ---
-# Keep in version control (do not add ignore rules that hide these):
-#   CITATION.bib, CITATION.cff, app.py, images/
-# data/, output/, and checkpoints/ are also tracked for this repo.
+# Keep tracked: source, app.py, CITATION.*, README, requirements, small data/*.csv as needed.
+# Hugging Face Spaces reject large binaries in plain Git — use Hub, Space "Files", or Git LFS/Xet.
+# See docs/hf-space/DEPLOY.md
+
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+output/
+images/
+data/dataanalysis/
 
 # Full training runs (verbose logs — keep out of git unless you need them)
 training_logs/
@@ -72,8 +80,10 @@ training_logs/
 # Best-parameter JSON dumps (local tuning / search — not required for inference UI)
 best_parameters/
 
-# Project docs (security review, HF deploy notes — omit from remote if you prefer)
-docs/
+# Internal docs (omit security notes from git); keep HF deploy guide tracked
+docs/*
+!docs/hf-space/
+!docs/hf-space/**
 
 # Local tool caches (e.g. matplotlib font cache under repo)
 .mplconfig/

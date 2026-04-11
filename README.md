@@ -1,6 +1,5 @@
 ---
 title: AMP PhysioChemical Predictor
-<<<<<<< HEAD
 emoji: 🧬
 colorFrom: blue
 colorTo: indigo
@@ -19,7 +18,7 @@ A comprehensive tool for predicting peptide half-life and analyzing physicochemi
 
 It is intended for research and education (e.g. open demos and reproducible workflows). Predictions are computational estimates, not clinical or regulatory advice.
 
-**Hugging Face Space:** [Ibisanmi1/AMP_PhysioChemical_Predictor](https://huggingface.co/spaces/Ibisanmi1/AMP_PhysioChemical_Predictor) — deploy, token, and `git push` steps: [`docs/hf-space/DEPLOY.md`](docs/hf-space/DEPLOY.md).
+**Hugging Face Space:** [Ibisanmi1/AMP_PhysioChemical_Predictor](https://huggingface.co/spaces/Ibisanmi1/AMP_PhysioChemical_Predictor). Spaces **reject large binaries in plain Git** — see [docs/hf-space/DEPLOY.md](docs/hf-space/DEPLOY.md). Auth/push: `scripts/hf_set_token.sh`, `scripts/hf_push_space.sh`.
 
 ### Step 1: Clone or Navigate to Project Directory
 
@@ -158,18 +157,5 @@ AMP_PhysioChem_Predictor/
 ```
 
 If this pipeline contributes to your research, please cite:
-Ibisanmi TA, Bahatheg G,Mishra (Baishnab) SK,  Willcox M, Kumar N (2026). AMP_PhysioChem_Predictor: Comprehensive computational software for the prediction of physicochemical properties and antimicrobial peptide stability.....
-=======
-emoji: 🐢
-colorFrom: purple
-colorTo: purple
-sdk: gradio
-sdk_version: 6.12.0
-app_file: app.py
-pinned: false
-license: apache-2.0
-short_description: ' web-based Computational platform '
----
 
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
->>>>>>> hf/main
+Ibisanmi TA, Bahatheg G,Mishra (Baishnab) SK,  Willcox M, Kumar N (2026). AMP_PhysioChem_Predictor: Comprehensive computational software for the prediction of physicochemical properties and antimicrobial peptide stability.....
