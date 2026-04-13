@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import contextlib
 import html
+import inspect
 import io
 import math
 import os
@@ -1059,6 +1060,8 @@ def _on_hf_space() -> bool:
             "SPACE_ID",
             "SPACE_AUTHOR_NAME",
             "SPACE_REPO_NAME",
+            "SPACE_HARDWARE",
+            "SPACE_SYSTEM_VERSION",
         )
     )
 
@@ -1071,9 +1074,18 @@ if __name__ == "__main__":
         _show_err = str(_raw_show).strip().lower() in ("1", "true", "yes")
     else:
         _show_err = not _on_hf_space()
-    demo.launch(
-        server_name="0.0.0.0",
-        server_port=port,
-        show_error=_show_err,
+    # Gradio SSR probes localhost; that fails inside HF Spaces (and some headless images).
+    _launch_kw: Dict[str, Any] = {
+        "server_name": "0.0.0.0",
+        "server_port": port,
+        "show_error": _show_err,
         **_LAUNCH_THEME_KW,
-    )
+    }
+    if _on_hf_space() or os.environ.get("GRADIO_DISABLE_SSR", "").strip().lower() in (
+        "1",
+        "true",
+        "yes",
+    ):
+        if "ssr_mode" in inspect.signature(demo.launch).parameters:
+            _launch_kw["ssr_mode"] = False
+    demo.launch(**_launch_kw)
