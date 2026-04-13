@@ -37,9 +37,21 @@ TMP="__hf_space_orphan_$$"
 git branch -D "${TMP}" 2>/dev/null || true
 
 git checkout --orphan "${TMP}"
+# Orphan still copies the index from HEAD — tracked .pt / output/ / images/ would stay
+# staged and end up in the new commit. Drop the index, then re-stage only .gitignore-safe paths.
+git rm -rf --cached . >/dev/null 2>&1 || true
 git add -A
 if git diff --cached --quiet; then
   echo "Nothing to commit — nothing staged after git add -A."
+  git checkout "${CURRENT}"
+  git branch -D "${TMP}" 2>/dev/null || true
+  exit 1
+fi
+
+if git diff --cached --name-only | grep -qE '\.(pt|pth|ckpt)$'; then
+  echo "Error: weight/checkpoint files are still staged. They must be gitignored for HF Spaces."
+  echo "Staged matches:"
+  git diff --cached --name-only | grep -E '\.(pt|pth|ckpt)$' || true
   git checkout "${CURRENT}"
   git branch -D "${TMP}" 2>/dev/null || true
   exit 1
