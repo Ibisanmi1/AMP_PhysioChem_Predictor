@@ -610,15 +610,6 @@ CUSTOM_CSS = """
   box-shadow: 0 4px 32px rgba(15, 23, 42, 0.07);
   margin-top: 0.25rem;
 }
-.workbench-kicker {
-  margin: 0 0 0.85rem 0;
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--unsw-navy-mid);
-  opacity: 0.9;
-}
 .section-heading {
   margin: 1rem 0 0.45rem 0;
   font-size: 0.72rem;
@@ -859,25 +850,14 @@ with gr.Blocks(**_BLOCKS_KW) as demo:
     gr.HTML(_HERO_HTML)
 
     with gr.Column(elem_classes=["app-shell"]):
-        gr.HTML('<p class="workbench-kicker">Laboratory workbench · default hybrid model · local analysis</p>')
         model_dd = gr.Dropdown(
             label="Half-life prediction model",
             choices=PRESET_DROPDOWN_LABELS,
             value=PRESET_DROPDOWN_LABELS[0],
-            info=(
-                "Presets map to repository checkpoints and training configs. "
-                "The matrix benchmark uses the hybrid CNN–BiLSTM + physicochemical run that tops "
-                "`data/model_comparison.csv`. Override the recommended preset with `AMP_MODEL_PATH` if set."
-            ),
         )
 
         with gr.Tabs():
             with gr.Tab("Single sequence"):
-                gr.Markdown(
-                    "One-letter amino-acid sequence. Uses the **repository default** CNN–BiLSTM + physicochemical "
-                    "checkpoint unless `AMP_MODEL_PATH` is set. Enable figures for **420 dpi** PNGs (override with "
-                    "`AMP_WEB_FIGURE_DPI`)."
-                )
                 with gr.Row(equal_height=False):
                     with gr.Column(scale=1, min_width=300):
                         seq_in = gr.Textbox(
