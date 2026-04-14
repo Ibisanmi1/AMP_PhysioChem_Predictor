@@ -1,15 +1,3 @@
----
-title: AMP PhysioChemical Predictor
-emoji: 🧬
-colorFrom: blue
-colorTo: indigo
-sdk: gradio
-app_file: app.py
-pinned: false
-license: apache-2.0
-short_description: AMP half-life and physchem profiles for peptides (research).
----
-
 # AMP PhysioChem Predictor
 
 A comprehensive tool for predicting peptide half-life and analyzing physicochemical properties of antimicrobial peptides (AMPs) using deep learning and established biochemical methods.
