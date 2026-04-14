@@ -1,0 +1,14 @@
+AMP PhysioChem Predictor — Web interface (brief user guide)
+
+The web application is a Gradio workbench for antimicrobial peptide sequences. It offers half-life estimation with optional physicochemical profiling and optional publication-quality figures. Open it in a normal browser; hosted copies require network access.
+
+Choose the half-life prediction model from the menu above the tabs. The recommended hybrid preset is the default for routine analyses unless your deployment documentation specifies another checkpoint.
+
+On Single sequence, enter the peptide as a standard one-letter code. Leave physicochemical profiling enabled for the full scientific pipeline unless you deliberately want a lighter run. Enable the publication figure suite if you need high-resolution PNG panels and a ZIP archive. Press Run prediction, then read the summary, property table, and composition chart. Inspect the gallery and download the ZIP when figures were generated.
+
+On Batch (paste), put one sequence per line. Empty lines are skipped and lines beginning with # are treated as comments. The batch is limited to two hundred sequences; use several sequences if you want richer pooled figures with profiling on. Use the same option checkboxes, press Run batch, then use the results table, CSV download, and optional figure outputs as needed.
+
+Use the How to cite tab for plain text, BibTeX, individual files, or a citation ZIP so published work acknowledges the software and the Kumar Research Group at UNSW Sydney. Model weights must be present on the server; predictions are computational aids and do not replace laboratory measurement.
+
+Repository: https://github.com/Ibisanmi1/AMP_PhysioChem_Predictor
+Group: https://nareshkumar.com.au
