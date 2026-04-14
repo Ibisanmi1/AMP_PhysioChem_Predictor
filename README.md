@@ -4,7 +4,7 @@ A comprehensive tool for predicting peptide half-life and analyzing physicochemi
 
 It is intended for research and education (e.g. open demos and reproducible workflows). Predictions are computational estimates, not clinical or regulatory advice.
 
-**Hugging Face Space:** [Ibisanmi1/AMP_PhysioChemical_Predictor](https://huggingface.co/spaces/Ibisanmi1/AMP_PhysioChemical_Predictor). Spaces **reject large binaries in plain Git** — see [docs/hf-space/DEPLOY.md](docs/hf-space/DEPLOY.md). Auth/push: `scripts/hf_set_token.sh`, `scripts/hf_push_space.sh`.
+**Hugging Face Space:** [Ibisanmi1/AMP_PhysioChemical_Predictor](https://huggingface.co/spaces/Ibisanmi1/AMP_PhysioChemical_Predictor). 
 
 ### Step 1: Clone or Navigate to Project Directory
 
