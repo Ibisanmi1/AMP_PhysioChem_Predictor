@@ -1,7 +1,6 @@
 """
 Deep Learning Models for Physicochemical Property Prediction
 Neural network architectures for predicting physicochemical properties of antimicrobial peptides
-Improved based on IAM_ADMET_AI architecture patterns
 """
 
 import torch
