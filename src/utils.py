@@ -1,6 +1,5 @@
 """
 Training Utilities for AMP Physicochemical AI
-Improved utilities based on IAM_ADMET_AI architecture patterns
 """
 
 import random
