@@ -1,6 +1,6 @@
 """
 Fast Dataset for Half-Life Prediction
-Uses simple tokenization like IAM_ADMET_AI - no slow BioPython calculations
+
 """
 import numpy as np
 import pandas as pd
