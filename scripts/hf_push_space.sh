@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-# Push current branch to your Hugging Face Space Git remote.
-# Prereq: run scripts/hf_set_token.sh (or hf auth login) first.
-#
 # Usage (from repo root):
 #   ./scripts/hf_push_space.sh              # push HEAD -> hf main
 #   ./scripts/hf_push_space.sh my-branch    # push my-branch -> hf main
